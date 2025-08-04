@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Header from './components/Header';
+import HeroBanner from './components/HeroBanner';
+import InfoSection from './components/InfoSection';
+import CategoryTabs from './components/CategoryTabs';
+import ProductGrid from './components/ProductGrid';
+import ProductSection from './components/ProductSection';
 
 function App() {
+  const [selectedCategory, setSelectedCategory] = useState('HAFTANIN YILDIZLARI');
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category.name);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <main>
+        <HeroBanner />
+        <InfoSection />
+        <CategoryTabs onCategoryChange={handleCategoryChange} />
+        <ProductGrid />
+        <ProductSection />
+      </main>
     </div>
   );
 }
