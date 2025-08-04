@@ -128,43 +128,60 @@ const ProductSection = () => {
         <button className="view-all-btn">Tümünü Gör →</button>
       </div>
       
-      <div className="carousel-wrapper">
-        <button 
-          className="carousel-nav-btn left" 
-          onClick={() => scrollLeft(weeklyStarsRef)}
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        
-        <div className="products-horizontal-scroll" ref={weeklyStarsRef}>
-          {weeklyStars.map((product) => (
-            <div key={product.id} className="product-card-small">
-              <div className="product-badge-red">HAFTANIN YILDIZLARI</div>
-              <div className="product-image-container-small">
-                <img src={product.image} alt={product.title} className="product-image-small" />
-                <div className="discount-badge-small">%{product.discount?.replace('%', '')}</div>
-              </div>
-              <div className="product-info-small">
-                <h3 className="product-title-small">{product.title}</h3>
-                <div className="price-container-small">
-                  <span className="original-price-small">{product.originalPrice}</span>
-                  <span className="sale-price-small">{product.salePrice}</span>
-                </div>
-              </div>
-            </div>
-          ))}
+      <div className="section-content">
+        <div className="fixed-promo-card weekly-stars">
+          <div className="promo-card-image">
+            <img 
+              src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+              alt="Haftanın Özel Ürünleri" 
+            />
+          </div>
+          <div className="promo-card-content">
+            <div className="promo-badge">HAFTANIN YILDIZLARI</div>
+            <h3>1-7 AĞUSTOS</h3>
+            <p>TARİHLERİ ARASINDA</p>
+            <button className="promo-btn">İncele</button>
+          </div>
         </div>
         
-        <button 
-          className="carousel-nav-btn right" 
-          onClick={() => scrollRight(weeklyStarsRef)}
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
+        <div className="carousel-wrapper">
+          <button 
+            className="carousel-nav-btn left" 
+            onClick={() => scrollLeft(weeklyStarsRef)}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          
+          <div className="products-horizontal-scroll" ref={weeklyStarsRef}>
+            {weeklyStars.map((product) => (
+              <div key={product.id} className="product-card-small">
+                <div className="product-badge-red">HAFTANIN YILDIZLARI</div>
+                <div className="product-image-container-small">
+                  <img src={product.image} alt={product.title} className="product-image-small" />
+                  <div className="discount-badge-small">%{product.discount?.replace('%', '')}</div>
+                </div>
+                <div className="product-info-small">
+                  <h3 className="product-title-small">{product.title}</h3>
+                  <div className="price-container-small">
+                    <span className="original-price-small">{product.originalPrice}</span>
+                    <span className="sale-price-small">{product.salePrice}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <button 
+            className="carousel-nav-btn right" 
+            onClick={() => scrollRight(weeklyStarsRef)}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* 10 TL Campaign Section */}
@@ -174,40 +191,57 @@ const ProductSection = () => {
           <button className="view-all-btn">Tümünü Gör →</button>
         </div>
         
-        <div className="carousel-wrapper">
-          <button 
-            className="carousel-nav-btn left" 
-            onClick={() => scrollLeft(tenTLRef)}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
-          
-          <div className="products-horizontal-scroll" ref={tenTLRef}>
-            {tenTLProducts.map((product) => (
-              <div key={product.id} className="product-card-small campaign">
-                <div className="campaign-badge">10 TL ve üzeri alışverişlerinizde</div>
-                <div className="product-image-container-small">
-                  <img src={product.image} alt={product.title} className="product-image-small" />
-                  <div className="price-tag-small">₺{product.salePrice?.replace('₺', '')}</div>
-                </div>
-                <div className="product-info-small">
-                  <h3 className="product-title-small">{product.title}</h3>
-                  <div className="price-simple-small">{product.salePrice}</div>
-                </div>
-              </div>
-            ))}
+        <div className="section-content">
+          <div className="fixed-promo-card campaign">
+            <div className="promo-card-image">
+              <img 
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                alt="10 TL Kampanya" 
+              />
+            </div>
+            <div className="promo-card-content">
+              <div className="promo-badge campaign">10 TL ve üzeri alışverişlerinizde</div>
+              <h3>1-7 AĞUSTOS</h3>
+              <p>TARİHLERİ ARASINDA</p>
+              <button className="promo-btn campaign">İncele</button>
+            </div>
           </div>
           
-          <button 
-            className="carousel-nav-btn right" 
-            onClick={() => scrollRight(tenTLRef)}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
+          <div className="carousel-wrapper">
+            <button 
+              className="carousel-nav-btn left" 
+              onClick={() => scrollLeft(tenTLRef)}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            
+            <div className="products-horizontal-scroll" ref={tenTLRef}>
+              {tenTLProducts.map((product) => (
+                <div key={product.id} className="product-card-small campaign">
+                  <div className="campaign-badge">10 TL ve üzeri alışverişlerinizde</div>
+                  <div className="product-image-container-small">
+                    <img src={product.image} alt={product.title} className="product-image-small" />
+                    <div className="price-tag-small">₺{product.salePrice?.replace('₺', '')}</div>
+                  </div>
+                  <div className="product-info-small">
+                    <h3 className="product-title-small">{product.title}</h3>
+                    <div className="price-simple-small">{product.salePrice}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <button 
+              className="carousel-nav-btn right" 
+              onClick={() => scrollRight(tenTLRef)}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>
