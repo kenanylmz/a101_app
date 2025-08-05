@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
-import HeroBanner from './components/HeroBanner';
-import InfoSection from './components/InfoSection';
-import ProductGrid from './components/ProductGrid';
-import ProductSection from './components/ProductSection';
+import HomePage from './pages/HomePage';
+import ProductDetail from './components/ProductDetail';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <main>
-        <HeroBanner />
-        <InfoSection />
-        <ProductGrid />
-        <ProductSection />
-      </main>
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/kapida" element={<ProductDetail />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 

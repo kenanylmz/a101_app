@@ -21,6 +21,10 @@
   align-items: center;
 }
 
+.logo-section a {
+  text-decoration: none;
+}
+
 .logo-card {
   background: white;
   border-radius: 15px;

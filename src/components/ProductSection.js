@@ -1,9 +1,11 @@
 import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ProductSection.css';
 
 const ProductSection = () => {
   const weeklyStarsRef = useRef(null);
   const tenTLRef = useRef(null);
+  const navigate = useNavigate();
 
   const scrollLeft = (ref) => {
     ref.current.scrollBy({ left: -300, behavior: 'smooth' });
@@ -156,7 +158,12 @@ const ProductSection = () => {
           
           <div className="products-horizontal-scroll" ref={weeklyStarsRef}>
             {weeklyStars.map((product) => (
-              <div key={product.id} className="product-card-small">
+              <div 
+                key={product.id} 
+                className="product-card-small"
+                onClick={() => navigate('/kapida')}
+                style={{ cursor: 'pointer' }}
+              >
                 <div className="product-badge-red">HAFTANIN YILDIZLARI</div>
                 <div className="product-image-container-small">
                   <img src={product.image} alt={product.title} className="product-image-small" />
@@ -219,7 +226,12 @@ const ProductSection = () => {
             
             <div className="products-horizontal-scroll" ref={tenTLRef}>
               {tenTLProducts.map((product) => (
-                <div key={product.id} className="product-card-small campaign">
+                <div 
+                  key={product.id} 
+                  className="product-card-small campaign"
+                  onClick={() => navigate('/kapida')}
+                  style={{ cursor: 'pointer' }}
+                >
                   <div className="campaign-badge">10 TL ve üzeri alışverişlerinizde</div>
                   <div className="product-image-container-small">
                     <img src={product.image} alt={product.title} className="product-image-small" />

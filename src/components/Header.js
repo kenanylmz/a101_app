@@ -1,29 +1,32 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
+  const location = useLocation();
+  
   return (
     <header className="header">
       <div className="header-container">
         <div className="header-left">
           <div className="logo-section">
-            <div className="logo-card active">
+            <Link to="/" className={`logo-card ${location.pathname === '/' ? 'active' : ''}`}>
               <span className="logo-main">A•101</span>
-            </div>
-            <div className="logo-card">
+            </Link>
+            <Link to="/aldim" className={`logo-card ${location.pathname === '/aldim' ? 'active' : ''}`}>
               <div className="logo-icon">🛒</div>
               <div className="logo-text">
                 <span className="logo-main">A•101</span>
                 <span className="logo-subtitle">ALDIM</span>
               </div>
-            </div>
-            <div className="logo-card">
+            </Link>
+            <Link to="/kapida" className={`logo-card ${location.pathname === '/kapida' ? 'active' : ''}`}>
               <div className="logo-icon">🚚</div>
               <div className="logo-text">
                 <span className="logo-main">A•101</span>
                 <span className="logo-subtitle">KAPIDA</span>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
         
